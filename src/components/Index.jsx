@@ -18,7 +18,7 @@ function Index() {
     // Notes logic
     const filteredData = useMemo(() => {
         return notes.filter(el => {
-            if(el.title.toLowerCase().includes(search)) {
+            if(el.title.toLowerCase().includes(search.toLowerCase())) {
                 return el.title.toLowerCase().includes(search.toLowerCase())
             }
             return el.description.toLowerCase().includes(search.toLowerCase())

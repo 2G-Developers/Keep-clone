@@ -24,7 +24,6 @@ function Dialog({id, isDialogOpen, setDialog, isAddNote, noteTitle, noteDesc, no
     }, [isDialogOpen])
 
     function updateNoteData(argArchive=false, argPinned=false) {
-
         if(title !== "" || description !== "") {
             let data = {
                 id,
@@ -54,7 +53,11 @@ function Dialog({id, isDialogOpen, setDialog, isAddNote, noteTitle, noteDesc, no
                 dispatch(updateNote({...data,isDialogOpen: false}))
             }
         } else {
-            setDialog(prevState => !prevState)
+            if(!isAddNote) {
+                dispatch(deleteNote(id))
+            } else {
+                setDialog(prevState => !prevState)
+            }
         }
         
     }
@@ -64,13 +67,9 @@ function Dialog({id, isDialogOpen, setDialog, isAddNote, noteTitle, noteDesc, no
             { isDialogOpen ? (<div className="card__backdrop" onClick={() => updateNoteData()}></div>) : null }
 
             <div className={dialogToggle}>
-                {/* <div className="card__title" placeholder="Title" onBlur={(event) => setTitle(event.currentTarget.textContent)} contentEditable={true} suppressContentEditableWarning={true}>
-                    {title}
-                </div> */}
+
                 <input className="card__title card__title--input" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
-                {/* <div className="card__desc card__desc--dialog" placeholder="Write Something" onBlur={(event) => setDescription(event.currentTarget.textContent)} contentEditable={true} suppressContentEditableWarning={true}>
-                    {description}
-                </div> */}
+
                 <textarea className="card__desc card__desc--dialog" rows="3" value={description} placeholder="Write Something" onChange={(event) => setDescription(event.target.value)} />
                 <div className="card__options card__options--dialog">
                     <div className="card__options-wrapper">

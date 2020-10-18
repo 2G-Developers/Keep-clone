@@ -37,7 +37,7 @@ const noteReducer = (state = initialState, action) => {
                 ...state,
                 notes: state.notes.map((element) => {
                     if(element.id === action.payload) {
-                        return {...element, isArchive: !element.isArchive, isPinned: false}
+                        return {...element, isArchive: !element.isArchive, isPinned: false, isDialogOpen: false}
                     }
                     return {...element}
                 })
@@ -47,7 +47,7 @@ const noteReducer = (state = initialState, action) => {
                 ...state,
                 notes: state.notes.map((element) => {
                     if(element.id === action.payload) {
-                        return {...element, isPinned: !element.isPinned, isArchive: false}
+                        return {...element, isPinned: !element.isPinned, isArchive: false, isDialogOpen: false}
                     }
                     return {...element}
                 })
