@@ -1,9 +1,12 @@
 .sidebar {
-    width: 280px;
+    width: 150px;
     background: $primary-color;
     transition: width 500ms ease-in, border-radius 300ms 400ms;
     margin-top: 4rem;
     background: var(--bg-color);
+    @include respond(tab-port) {
+        width: 110px;
+    }
 
     &--animate {
         width: 80px;
