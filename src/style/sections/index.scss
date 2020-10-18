@@ -1,0 +1,78 @@
+#root {
+    height: 100%;
+}
+
+.app {
+    height: 100%;
+}
+
+
+
+.wrapper {
+    height: 100%;
+    transition: all 500ms ease-in;
+    display: flex;
+    
+    @include respond(tab-port) {
+        position: relative;
+    }
+    
+}
+
+.workspace {
+    padding: 1rem;
+    text-align: center;
+    margin-top: 4rem;
+    display: flex;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @include respond(tab-port) {
+        margin-top: 5rem;
+    }
+
+    &__input {
+        max-width: 560px;
+        padding: 1rem .5rem;
+        border-radius: 3px;
+        width: 100%;
+        min-height: 46px;
+        text-align: left;
+        border: 1px solid var(--border-color);
+        background: var(--bg-color);
+        color: var(--text-color);
+        box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    }
+
+    &__area {
+        display: flex;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    &__archive {
+        display: flex;
+        flex-wrap: wrap;
+        @include respond(tab-port) {
+            justify-content: center;
+        }
+    }
+
+    &__pinned, &__unpinned {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+
+        @include respond(tab-port) {
+            justify-content: center;
+        }
+    }
+}
+
+.primary-heading {
+    color: var(--text-color);
+}
