@@ -13,18 +13,18 @@ function Result({filteredData}) {
     
     return (
         <>
-            <h2 class="primary-heading">Search Result</h2>
-            {pinnedNote.length > 0 ? <h2 class="primary-heading">Pinned</h2> : null}
+            <h2 className="primary-heading">Search Result</h2>
+            {pinnedNote.length > 0 ? <h2 className="primary-heading">Pinned</h2> : null}
             <div className="workspace__pinned">
                 <CardList cards={pinnedNote} />
             </div>
             
-            {unPinnedNote.length > 0 ? <h2 class="primary-heading">Others</h2> : null}
+            {unPinnedNote.length > 0 ? <h2 className="primary-heading">Others</h2> : null}
             <div className="workspace__pinned">
                 <CardList cards={unPinnedNote} />
             </div>
 
-            {archivedNote.length > 0 ? <h2 class="primary-heading">Archived</h2> : null}
+            {archivedNote.length > 0 ? <h2 className="primary-heading">Archived</h2> : null}
             <div className="workspace__unpinned">
                 <CardList cards={archivedNote} />
             </div>
