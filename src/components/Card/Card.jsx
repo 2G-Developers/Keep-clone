@@ -2,9 +2,11 @@ import React from 'react';
 import {ReactComponent as Trash } from '../../images/trash.svg'
 import {ReactComponent as Archive } from '../../images/archive.svg'
 import {ReactComponent as Pinned } from '../../images/push-pin.svg'
+import ReactMarkdown from 'react-markdown'
 import { useDispatch} from 'react-redux'
 import { deleteNote, archiveNote, pinnedNote, setNoteDialog } from '.././../redux'
 import Dialog from '../Dialog/Dialog';
+import gfm from 'remark-gfm';
 
 function Card({note}) {
     const dispatch = useDispatch()
@@ -17,8 +19,11 @@ function Card({note}) {
                 <div className="card__title" onClick={() => dispatch(setNoteDialog(note.id))}>
                     {note.title}
                 </div>
-                <div className="card__desc" onClick={() => dispatch(setNoteDialog(note.id))}>
+                {/* <div className="card__desc" onClick={() => dispatch(setNoteDialog(note.id))}>
                     {note.description}
+                </div> */}
+                <div className="card__desc" onClick={() => dispatch(setNoteDialog(note.id))}>
+                    <ReactMarkdown plugins={[gfm]} children={note.description} />
                 </div>
                 <div className="card__options">
                     <div className="card__options-wrapper">
