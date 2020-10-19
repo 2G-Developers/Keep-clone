@@ -13,7 +13,7 @@ function Result({filteredData}) {
     
     return (
         <>
-            <h2>Search Result</h2>
+            <h2 class="primary-heading">Search Result</h2>
             {pinnedNote.length > 0 ? <h2 class="primary-heading">Pinned</h2> : null}
             <div className="workspace__pinned">
                 <CardList cards={pinnedNote} />
