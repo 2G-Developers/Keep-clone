@@ -15,7 +15,7 @@ function Index() {
     const search = useSelector(state => state.searchText)
     const notes = useSelector(state => state.notes)
 
-    // Notes logic
+    // filter data when user start to search
     const filteredData = useMemo(() => {
         return notes.filter(el => {
             if(el.title.toLowerCase().includes(search.toLowerCase())) {
@@ -25,10 +25,10 @@ function Index() {
         });
     }, [notes, search])
 
-    const pinnedNotes = useMemo(() => {
-        return notes.filter(el => el.isPinned)
-    }, [notes])
+    // Extract only pinned notes
+    const pinnedNotes = useMemo(() => notes.filter(el => el.isPinned), [notes])
 
+    // Extract only unpinned notes
     const unPinnedNotes = useMemo(() => {
         return notes.filter(el => {
             if(el.isPinned){
@@ -38,8 +38,10 @@ function Index() {
         })
     }, [notes])
 
+    // Extract only archive notes
     const archivedNotes = useMemo(() => notes.filter(el => el.isArchive), [notes])
 
+    // Dispay search page when user start to type
     const userSearch = (search.length > 0) ? (<Route 
         path="/" 
         exact

@@ -3,3 +3,21 @@
     align-items: center;
     cursor: text;
 }
+
+.add-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #2a61e9;
+    color: #fff;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+    @include respond(tab-port) {
+        display: flex;
+    }
+}

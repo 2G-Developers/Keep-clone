@@ -27,5 +27,10 @@
         text-decoration: none;
         margin-left: 1rem;
         font-weight: 500;
+
+        &--clear {
+            margin-left: 0;
+            margin-right: auto;
+        }
     }
 }
